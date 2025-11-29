@@ -2,12 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BeakerIcon, FlaskConical, Microscope, ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const Index = () => {
   const [isHoveringCTA, setIsHoveringCTA] = useState(false);
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
+  return <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-transparent" />
@@ -28,31 +25,18 @@ const Index = () => {
                   Experience
                 </h1>
                 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Break free from equipment limitations. Our interactive platform lets students 
-                  perform real experiments, adjust parameters, record observations, and build 
-                  genuine laboratory skills—anytime, anywhere.
-                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">Break free from equipment limitations. Our interactive platform lets students perform real experiments, adjust parameters, record observations, and build genuine laboratory skills—anytime, anywhere.</p>
 
                 <div className="flex flex-wrap gap-4">
                   <Link to="/lab">
-                    <Button 
-                      size="lg" 
-                      className="group bg-gradient-to-r from-primary to-secondary hover:shadow-lg transition-all duration-300"
-                      onMouseEnter={() => setIsHoveringCTA(true)}
-                      onMouseLeave={() => setIsHoveringCTA(false)}
-                    >
+                    <Button size="lg" className="group bg-gradient-to-r from-primary to-secondary hover:shadow-lg transition-all duration-300" onMouseEnter={() => setIsHoveringCTA(true)} onMouseLeave={() => setIsHoveringCTA(false)}>
                       <Play className="w-5 h-5 mr-2" />
                       Start Your First Experiment
                       <ArrowRight className={`w-5 h-5 ml-2 transition-transform ${isHoveringCTA ? "translate-x-1" : ""}`} />
                     </Button>
                   </Link>
                   
-                  <Button 
-                    size="lg" 
-                    variant="outline"
-                    className="border-2 hover:bg-muted/50"
-                  >
+                  <Button size="lg" variant="outline" className="border-2 hover:bg-muted/50">
                     Watch Demo
                   </Button>
                 </div>
@@ -60,7 +44,7 @@ const Index = () => {
                 {/* Stats */}
                 <div className="flex gap-8 pt-4">
                   <div>
-                    <div className="text-3xl font-bold text-primary">15+</div>
+                    <div className="text-3xl font-bold text-primary border-black">15+</div>
                     <div className="text-sm text-muted-foreground">Experiments</div>
                   </div>
                   <div>
@@ -117,7 +101,7 @@ const Index = () => {
                         <span className="text-sm text-muted-foreground">Color Change</span>
                         <div className="flex gap-2">
                           <div className="w-4 h-4 rounded-full bg-red-500" />
-                          <span className="text-sm">→</span>
+                          <span className="text-sm font-serif">-></span>
                           <div className="w-4 h-4 rounded-full bg-accent" />
                         </div>
                       </div>
@@ -250,10 +234,7 @@ const Index = () => {
               Start with our interactive titration experiment and discover true hands-on learning.
             </p>
             <Link to="/lab">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-primary to-secondary hover:shadow-xl transition-all text-lg px-8 py-6"
-              >
+              <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:shadow-xl transition-all text-lg px-8 py-6">
                 <Play className="w-6 h-6 mr-2" />
                 Begin Your First Experiment
                 <ArrowRight className="w-6 h-6 ml-2" />
@@ -262,8 +243,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
