@@ -3,8 +3,8 @@
 <head>
 </head>
 <body>
-
-<h1>🚀 Virtual Chemistry Lab - Frontend</h1>
+<p align="center"><img src="/public/logo.jpg" alt="icon" height=120/></p>
+<h1 align="center"> Virtual Chemistry Lab - Frontend</h1>
 <p>
   This is the <strong>frontend</strong> of the Virtual Chemistry Lab — a fully interactive, modern web application built using <strong>React + Vite + Tailwind + ShadCN UI</strong>. Students can perform chemistry experiments such as distillation, titration, salt-analysis virtually, while faculty/admin can create experiments and view their student insights.
 </p>
