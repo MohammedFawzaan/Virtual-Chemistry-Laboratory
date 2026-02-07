@@ -57,9 +57,9 @@ const ApparatusVisualization = ({ temperature, vaporRate, collectedVolume, isBoi
   // Use a fixed width/height container for the visualization
   return (
     // FIX: Added a distinct background (bg-gray-100) to ensure the glassware is visible against the white card.
-    <div className="relative w-full h-[350px] flex items-center justify-center pt-10 bg-gray-100 rounded-xl border border-gray-200">
-      {/* The main apparatus container */}
-      <div className="relative w-full max-w-lg h-full scale-100 origin-top">
+    <div className="relative w-full h-[350px] flex items-center justify-center pt-10 bg-gray-100 rounded-xl border border-gray-200 overflow-hidden">
+      {/* The main apparatus container - Scaled for mobile */}
+      <div className="relative w-full max-w-lg h-full scale-[0.75] sm:scale-[0.85] md:scale-100 origin-top">
 
         {/* 1. Heating Mantle */}
         <div
@@ -126,11 +126,11 @@ const ApparatusVisualization = ({ temperature, vaporRate, collectedVolume, isBoi
           <div className="w-[120px] h-2 bg-gray-300/50 glass-effect relative z-10"></div>
         </div>
 
-        {/* 6. Receiving Flask & Distillate Drop */}
-        <div className="relative translate-x-[150px] translate-y-[200px] z-20">
+        {/* 6. Receiving Flask & Distillate Drop - Positioned Absolutely to prevent overflow */}
+        <div className="absolute top-[200px] left-[calc(50%+150px)] -translate-x-1/2 z-20 w-32">
           {/* Drop Animation */}
           {collectedVolume > 0 && isBoiling && (
-            <div className="absolute w-1 h-1 rounded-full bg-green-500/80 -top-5 left-[50px] animate-drop"></div>
+            <div className="absolute w-1 h-1 rounded-full bg-green-500/80 -top-5 left-1/2 -translate-x-1/2 animate-drop"></div>
           )}
           {/* Receiving Flask Neck */}
           <div className="w-8 h-8 mx-auto bg-gray-300/50 glass-effect border-b-2 border-gray-400/50"></div>
@@ -346,7 +346,7 @@ const Distillation: React.FC<Props> = ({ experimentId: propExperimentId, experim
             ) : (
               <Button size="sm" onClick={start} className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 hidden md:inline" />
-                <span>Start Experiment</span>
+                <span>Start</span>
               </Button>
             )}
           </div>

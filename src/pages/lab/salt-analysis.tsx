@@ -307,7 +307,7 @@ const SaltAnalysis: React.FC<Props> = ({ experimentId: propExperimentId, experim
   };
 
   const performCationTest = async (reagent: string, observation: string) => {
-    if (stage !== "confirmatory") return;
+    if (stage !== "confirmatory" && !flameTestDone) return;
     setIsTestRunning(true);
     await new Promise(resolve => setTimeout(resolve, 800));
     setIsTestRunning(false);
@@ -317,7 +317,7 @@ const SaltAnalysis: React.FC<Props> = ({ experimentId: propExperimentId, experim
   };
 
   const performAnionTest = async (reagent: string, observation: string) => {
-    if (stage !== "confirmatory") return;
+    if (stage !== "confirmatory" && !flameTestDone) return;
     setIsTestRunning(true);
     await new Promise(resolve => setTimeout(resolve, 800));
     setIsTestRunning(false);
@@ -391,8 +391,8 @@ const SaltAnalysis: React.FC<Props> = ({ experimentId: propExperimentId, experim
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-8 max-w-6xl">
-        <div className="grid lg:grid-cols-12 gap-8 h-[calc(100vh-140px)]">
+      <main className="container mx-auto px-4 md:px-6 py-8 max-w-6xl">
+        <div className="grid lg:grid-cols-12 gap-8 lg:h-[calc(100vh-140px)] h-auto">
 
           {/* LEFT: Controls */}
           <div className="lg:col-span-4 flex flex-col gap-6 overflow-y-auto pr-2">
@@ -451,7 +451,7 @@ const SaltAnalysis: React.FC<Props> = ({ experimentId: propExperimentId, experim
                 </Card>
 
                 {/* Stage 2: Confirmatory */}
-                <Card className={`p-5 border-slate-200 shadow-sm transition-all duration-300 ${stage === 'confirmatory' || stage === 'complete' ? 'ring-2 ring-teal-500/10 bg-white' : 'opacity-60 bg-slate-50'}`}>
+                <Card className={`p-5 border-slate-200 shadow-sm transition-all duration-300 ${stage === 'confirmatory' || stage === 'complete' || flameTestDone ? 'ring-2 ring-teal-500/10 bg-white' : 'opacity-60 bg-slate-50'}`}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 bg-purple-50 text-purple-600 rounded-lg"><TestTube2 className="w-4 h-4" /></div>
                     <h3 className="font-semibold text-slate-800">Confirmatory Tests</h3>
@@ -465,7 +465,7 @@ const SaltAnalysis: React.FC<Props> = ({ experimentId: propExperimentId, experim
                           <button
                             key={c.id}
                             onClick={() => performCationTest("NaOH", c.precipitate)}
-                            disabled={stage === "complete" || stage !== "confirmatory"}
+                            disabled={!flameTestDone || isTestRunning || stage === "complete"}
                             className="w-full text-left px-3 py-2 text-sm border border-slate-200 rounded-md hover:bg-slate-50 hover:border-slate-300 transition-colors text-slate-600"
                           >
                             Add NaOH <span className="text-slate-400 text-xs ml-1">({c.id})</span>
@@ -490,7 +490,7 @@ const SaltAnalysis: React.FC<Props> = ({ experimentId: propExperimentId, experim
                           <button
                             key={a.id}
                             onClick={() => performAnionTest(a.test, a.result)}
-                            disabled={stage === "complete" || stage !== "confirmatory"}
+                            disabled={!flameTestDone || isTestRunning || stage === "complete"}
                             className="w-full text-left px-3 py-2 text-sm border border-slate-200 rounded-md hover:bg-slate-50 hover:border-slate-300 transition-colors text-slate-600"
                           >
                             {a.test} <span className="text-slate-400 text-xs ml-1">({a.id})</span>

@@ -79,7 +79,7 @@ export default function StudentDashboard() {
   };
 
   return (
-    <div className="min-h-screen p-10 bg-gradient-to-br from-muted/20 via-muted/10 to-white">
+    <div className="min-h-screen p-4 md:p-10 bg-gradient-to-br from-muted/20 via-muted/10 to-white">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <div>

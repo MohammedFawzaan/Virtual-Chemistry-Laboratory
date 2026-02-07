@@ -24,7 +24,7 @@ export default function CreateExperiment() {
   };
 
   return (
-    <div className="p-10 max-w-xl mx-auto">
+    <div className="p-4 md:p-10 max-w-xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">Create Experiment</h1>
 
       <div className="grid gap-4">

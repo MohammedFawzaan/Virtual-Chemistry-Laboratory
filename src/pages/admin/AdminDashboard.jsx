@@ -41,7 +41,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen p-10 bg-gradient-to-br from-muted/20 via-muted/10 to-white">
+    <div className="min-h-screen p-4 md:p-10 bg-gradient-to-br from-muted/20 via-muted/10 to-white">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
         <div>
@@ -76,7 +76,7 @@ export default function AdminDashboard() {
               <p className="text-sm text-muted-foreground mb-2">{exp.description}</p>
               <div className="flex gap-2 flex-wrap text-xs text-muted-foreground">
                 <span>Created by: {exp.createdBy?.firstname + " " + exp.createdBy?.lastname}(you)</span>
-                <span>Created at: {new Date(exp.createdAt) .toLocaleDateString()}</span>
+                <span>Created at: {new Date(exp.createdAt).toLocaleDateString()}</span>
               </div>
             </div>
 

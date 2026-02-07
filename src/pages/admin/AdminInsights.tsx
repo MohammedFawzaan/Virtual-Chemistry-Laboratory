@@ -136,12 +136,12 @@ export default function AdminInsights() {
                     {run.experimentType === "distillation" && (
                       <>
                         <p>
-                          Total Collected: {run.distillation?.totalCollected} mL
+                          Total Collected: {run.results?.totalCollected} mL
                         </p>
                         <p>
                           Initial Mixture: {" "}
-                          {run.distillation?.initialMixture?.componentA} + {" "}
-                          {run.distillation?.initialMixture?.componentB}
+                          {run.results?.initialMixture?.componentA} + {" "}
+                          {run.results?.initialMixture?.componentB}
                         </p>
                       </>
                     )}
@@ -149,12 +149,12 @@ export default function AdminInsights() {
                     {run.experimentType === "salt-analysis" && (
                       <>
                         <p>
-                          Detected Cation: {run.saltAnalysis?.detectedCation}
+                          Detected Cation: {run.results?.detectedCation}
                         </p>
                         <p>
-                          Detected Anion: {run.saltAnalysis?.detectedAnion}
+                          Detected Anion: {run.results?.detectedAnion}
                         </p>
-                        <p>Final Result: {run.saltAnalysis?.finalResult}</p>
+                        <p>Final Result: {run.results?.finalResult}</p>
                       </>
                     )}
 

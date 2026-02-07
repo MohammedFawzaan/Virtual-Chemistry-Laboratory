@@ -72,20 +72,20 @@ export default function DataInsights() {
 
             {type === "distillation" && (
               <div className="space-y-1">
-                <p>Total Collected: {run.distillation?.totalCollected} mL</p>
+                <p>Total Collected: {run.results?.totalCollected} mL</p>
                 <p>
-                  Initial Mixture: {run.distillation?.initialMixture?.componentA} +
+                  Initial Mixture: {run.results?.initialMixture?.componentA} +
                   {" "}
-                  {run.distillation?.initialMixture?.componentB}
+                  {run.results?.initialMixture?.componentB}
                 </p>
               </div>
             )}
 
             {type === "salt-analysis" && (
               <div className="space-y-1">
-                <p>Detected Cation: {run.saltAnalysis?.detectedCation}</p>
-                <p>Detected Anion: {run.saltAnalysis?.detectedAnion}</p>
-                <p>Final Result: {run.saltAnalysis?.finalResult}</p>
+                <p>Detected Cation: {run.results?.detectedCation}</p>
+                <p>Detected Anion: {run.results?.detectedAnion}</p>
+                <p>Final Result: {run.results?.finalResult}</p>
                 <p>Total Tests: {run.stats?.totalTests}</p>
               </div>
             )}
