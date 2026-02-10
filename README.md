@@ -94,7 +94,7 @@ npm run build
 <hr />
 
 <h2>📜 License</h2>
-<p>By Mohammed Fawzaan.</p>
+<p>By Mohammed Fawzaan & Syed Umair.</p>
 
 </body>
 </html>
